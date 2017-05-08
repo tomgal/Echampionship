@@ -1,0 +1,83 @@
+﻿<Window x:Class="EChampionshipMVVM.View.MonCompteView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EChampionshipMVVM.View"
+        mc:Ignorable="d"
+        Title="Mon Compte - eChampionship" Height="720" Width="1280" MinHeight="720" MinWidth="1280"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Compte}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="126*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="65*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="167*"/>
+            <ColumnDefinition Width="52*"/>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="236*"/>
+            <ColumnDefinition Width="290*" />
+            <ColumnDefinition Width="290*"/>
+            <ColumnDefinition Width="184*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="photoProfil" Source="{Binding User.UrlImage}" Grid.Column="0" Grid.Row="0"/>
+        <TextBlock x:Name="pseudoUtilisateur" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding User.Pseudo}" FontSize="20" FontFamily="Segoe WP" TextAlignment="Center" Foreground="#FF00A2FF"/>
+        <Rectangle Grid.ColumnSpan="3"  Stroke="#FF0080FF" Grid.RowSpan="2" StrokeThickness="2"/>
+        <Image x:Name="image_credit" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Source="/Images/diamand_credit.png" HorizontalAlignment="Left" Width="30" Margin="0,48" Height="30" />
+        <TextBlock x:Name="nbCredit" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="{Binding User.Credit}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FF0080FF" HorizontalAlignment="Right" />
+        <Rectangle Grid.ColumnSpan="3"  Stroke="#FF0080FF" Grid.Row="1"  StrokeThickness="2"/>
+        <Rectangle Grid.Column="0"  Stroke="#FF0080FF" Grid.Row="0"  StrokeThickness="2"/>
+        <ListView x:Name="menuList" ItemsSource="{Binding MenuItem, Mode=OneWay}" Grid.ColumnSpan="3" Grid.Row="2" BorderThickness="2" BorderBrush="#FF0080FF" Grid.RowSpan="8" SelectionChanged="MenuChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock  Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding}" FontSize="25" FontFamily="Segoe WP" Grid.ColumnSpan="3" TextAlignment="Center" Foreground="#FF00A2FF" FontWeight="Bold" VerticalAlignment="Stretch" Margin="20,10,0,10" LineHeight="1"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- HEADER DE LA PRESENTATION DU PROFIL -->
+        <Image x:Name="backgroundProfile" Grid.Column="3" Source="{Binding User.BackgroundProfile}" Grid.Row="0" Grid.RowSpan="3" Opacity="0.45" Grid.ColumnSpan="4"/>
+        <Image x:Name="image" Grid.Column="6" Grid.Row="0" Source="{Binding User.UrlImage}" Grid.RowSpan="3" Margin="20,20,20,20"/>
+        <TextBlock x:Name="name" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding User.Pseudo}" VerticalAlignment="Center" FontSize="50" FontWeight="Bold" FontFamily="Segoe UI Black" Margin="200,51,199,8" Height="67" Width="181"/>
+        <Rectangle Grid.Column="3"  Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="7" Stroke="#FF0080FF" StrokeThickness="4" Margin="30" RadiusY="10" RadiusX="10"/>
+        <TextBlock x:Name="pseudoDef" Grid.Column="3" HorizontalAlignment="Center"  Grid.Row="4" TextWrapping="Wrap" Text="Pseudo : " VerticalAlignment="Center" Margin="40,0,0,0" FontSize="25" FontWeight="Bold"/>
+        <TextBlock x:Name="prenomDef" Grid.Column="3" HorizontalAlignment="Center"  Grid.Row="5" TextWrapping="Wrap" Text="Prenom : " VerticalAlignment="Center" Margin="40,0,0,0" FontSize="25" FontWeight="Bold"/>
+        <TextBlock x:Name="NomDef" Grid.Column="3" HorizontalAlignment="Center"  Grid.Row="6" TextWrapping="Wrap" Text="Nom : " VerticalAlignment="Center" Margin="40,0,0,0" FontSize="25" FontWeight="Bold"/>
+        <TextBlock x:Name="EmailDef" Grid.Column="3" HorizontalAlignment="Center"  Grid.Row="7" TextWrapping="Wrap" Text="Email : " VerticalAlignment="Center" Margin="40,0,0,0" FontSize="25" FontWeight="Bold" RenderTransformOrigin="0.519,6.455"/>
+        <TextBlock x:Name="Credit" Grid.Column="3" HorizontalAlignment="Center"  Grid.Row="8" TextWrapping="Wrap" Text="Credit : " VerticalAlignment="Center" Margin="40,0,0,0" FontSize="25" FontWeight="Bold"/>
+        <Image x:Name="imageCredit" Grid.Column="4" Grid.Row="8" VerticalAlignment="Center" Source="/EChampionshipMVVM;component/Images/diamand_credit.png" HorizontalAlignment="Right" Width="30" Height="30" Margin="0,0,80,0" />
+        <TextBlock x:Name="pseudo" Grid.Column="4" HorizontalAlignment="Center"  Grid.Row="4" TextWrapping="Wrap" Text="{Binding User.Pseudo}" VerticalAlignment="Center" Margin="0,0,40,0" FontSize="20"/>
+        <TextBlock x:Name="Prenom" Grid.Column="4" HorizontalAlignment="Center"  Grid.Row="5" TextWrapping="Wrap" Text="{Binding User.Prenom}" VerticalAlignment="Center" Margin="0,0,40,0" FontSize="20"/>
+        <TextBlock x:Name="Nom" Grid.Column="4" HorizontalAlignment="Center"  Grid.Row="6" TextWrapping="Wrap" Text="{Binding User.Nom}" VerticalAlignment="Center" Margin="0,0,40,0" FontSize="20"/>
+        <TextBlock x:Name="Email" Grid.Column="4" HorizontalAlignment="Center"  Grid.Row="7" TextWrapping="Wrap" Text="{Binding User.Mail}" VerticalAlignment="Center" Margin="0,0,40,0" FontSize="18"/>
+        <TextBlock x:Name="CreditInfo" Grid.Column="4" HorizontalAlignment="Center"  Grid.Row="8" TextWrapping="Wrap" Text="{Binding User.Credit}" VerticalAlignment="Center" Margin="0,0,40,0" FontSize="20"/>
+        <TextBlock x:Name="textBlock" Grid.Column="5" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Mes jeux :" VerticalAlignment="Bottom" FontSize="35" FontWeight="Bold" TextDecorations="Underline"/>
+        <ListView x:Name="listView" Grid.Column="5" Margin="20,20,20,40" ItemsSource="{Binding User.MyGames}" Grid.Row="4" Grid.RowSpan="6"  Grid.ColumnSpan="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="image1" Grid.Column="0" HorizontalAlignment="Left" Source="{Binding UrlImage}" VerticalAlignment="Top" Width="100" Height="100"/>
+                        <TextBlock x:Name="nomJeu" Grid.Column="1" Text="{Binding Nom}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF4310F0" FontSize="15" FontWeight="Normal" TextAlignment="Center" Margin="20,0,0,0"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBlock x:Name="textBlock1" Grid.Column="4" Margin="0,0,0,30" Grid.Row="9" TextWrapping="Wrap" Text="Informations IRL" VerticalAlignment="Center" FontSize="15" HorizontalAlignment="Center"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>
