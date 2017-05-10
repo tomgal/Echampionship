@@ -1,0 +1,82 @@
+#navigation {
+  margin: 0 ;
+  padding: 0 ;
+  list-style: none ;
+  text-align: center ;
+}
+
+#navigation li {
+  display: inline ;
+  margin-right: 0px ;
+  color: #fff ;
+  background: #c00 ;
+}
+
+#navigation li a {
+  padding: 0px 10px ;
+  color: #fff ;
+  font: 2em "Trebuchet MS",Arial,sans-serif ;
+  line-height: 3em ;
+  text-align: center ;
+  text-decoration: none ;
+}
+
+#navigation li a:hover, #navigation li a:active {
+  background: #CAABED;
+}
+
+nav{
+	background: #8C309E ;
+}
+
+.btn{
+	background: #8C309E ;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+h1{
+	margin: 20px;
+	text-align: center;
+  color : white;
+}
+
+body{
+	background-image: url(../Image/Fond3.png);
+}
+
+img{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto }
+}
+
+header{
+
+height:5000px;
+
+}
+
+label {
+  color : white;
+}
+
+.hide-bullets 
+{
+list-style:none;
+margin-left: 0px;
+margin-top:20px;
+}
+
+section 
+{
+margin-top: 150px;
+position: relative;
+margin-left : 150px;
+}
+
+article 
+{
+  position: relative;
+}

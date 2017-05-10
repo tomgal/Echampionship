@@ -1,0 +1,62 @@
+fieldset { 
+    display: block;
+    margin-left: 5px;
+    margin-right: 5px;
+	margin-bottom: 5px;
+    padding-top: 0.4em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px groove (internal value);
+	 background-color:#CCC;
+}
+
+.titreJeux	{
+	text-align: left;
+}
+
+.titreInscrip2 {
+	text-align: center;
+	 font-family: 'Gabriela', serif;
+    font-size: 60px;
+    letter-spacing: 10px;
+}
+
+/* MENU */
+
+#grosMenu
+{
+    margin-right: 92%;
+}
+#fieldMenu
+{
+    background: #636;
+
+
+}
+#menu{background: #636;font-size:15px;font-family:Arial, Verdana;font-weight:normal;}
+#menu a{font-weight:bold;text-decoration:none;}
+#menu a
+{
+    clear: both;
+    float: left;
+    padding: 15px;
+    display: block;
+    background: #636;
+    color:#fff;
+    font-weight:bold;
+}
+
+
+#Menu a:hover{background:#658;  text-decoration: underline }
+#Menu a:hover{background:#658;  text-decoration: underline }
+#Menu a:hover{background:#658;  text-decoration: underline }
+#Menu a:hover{background:#658;  text-decoration: underline }
+#Menu a:hover{background:#658;  text-decoration: underline }
+#Menu a:hover{background:#658;  text-decoration: underline }
+#Menu a:hover{background:#658;  text-decoration: underline }
+#Menu a:hover{background:#658;  text-decoration: underline }
+
+
+
+
