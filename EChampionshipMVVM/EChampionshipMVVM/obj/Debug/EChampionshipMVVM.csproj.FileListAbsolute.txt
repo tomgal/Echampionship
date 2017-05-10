@@ -37,3 +37,6 @@ C:\Users\GALIBERTThomas\Desktop\COURS INGESUP BACHELOR 3\EChampionshipMVVM\ECham
 C:\Users\GALIBERTThomas\Desktop\COURS INGESUP BACHELOR 3\EChampionshipMVVM\EChampionshipMVVM\obj\Debug\View\MonCompteView.baml
 C:\Users\GALIBERTThomas\Desktop\COURS INGESUP BACHELOR 3\EChampionshipMVVM\EChampionshipMVVM\obj\Debug\View\TeamView.g.cs
 C:\Users\GALIBERTThomas\Desktop\COURS INGESUP BACHELOR 3\EChampionshipMVVM\EChampionshipMVVM\obj\Debug\View\TeamView.baml
+C:\Users\GALIBERTThomas\Desktop\repo\EChampionshipMVVM\EChampionshipMVVM\bin\Debug\EChampionshipMVVM.exe.config
+C:\Users\GALIBERTThomas\Desktop\repo\EChampionshipMVVM\EChampionshipMVVM\obj\Debug\EChampionshipMVVM.exe
+C:\Users\GALIBERTThomas\Desktop\repo\EChampionshipMVVM\EChampionshipMVVM\obj\Debug\EChampionshipMVVM.pdb
