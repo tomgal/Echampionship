@@ -1,0 +1,137 @@
+﻿<Window x:Class="EChampionshipMVVM.View.AccueilView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EChampionshipMVVM.View"
+        mc:Ignorable="d"
+        Title="Accueil - eChampionship" Height="720" Width="1280" MinHeight="720" MinWidth="1280"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Dashboard}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="129*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="150*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="159*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="953*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="photoProfil" Source="{Binding User.UrlImage}" Grid.Column="0" Grid.Row="0"/>
+        <TextBlock x:Name="pseudoUtilisateur" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding User.Pseudo}" FontSize="20" FontFamily="Segoe WP" Grid.ColumnSpan="3" TextAlignment="Center" Foreground="#FF00A2FF"/>
+        <Rectangle Grid.ColumnSpan="3"  Stroke="#FF0080FF" Grid.RowSpan="2" StrokeThickness="2"/>
+        <Image x:Name="image_credit" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Source="/Images/diamand_credit.png" HorizontalAlignment="Left" Width="30" Margin="0,50,0,49"/>
+        <TextBlock x:Name="nbCredit" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="{Binding User.Credit}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FF0080FF" HorizontalAlignment="Right" Margin="0,51"/>
+        <Rectangle Grid.ColumnSpan="3"  Stroke="#FF0080FF" Grid.Row="1"  StrokeThickness="2"/>
+        <Rectangle Grid.Column="0"  Stroke="#FF0080FF" Grid.Row="0"  StrokeThickness="2"/>
+        <ListView x:Name="menuList" ItemsSource="{Binding MenuItem, Mode=OneWay}" Grid.ColumnSpan="3" Grid.Row="2" BorderThickness="2" BorderBrush="#FF0080FF" Grid.RowSpan="6" SelectionChanged="ChangeMenu">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock  Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding}" FontSize="25" FontFamily="Segoe WP" Grid.ColumnSpan="3" TextAlignment="Center" Foreground="#FF00A2FF" FontWeight="Bold" VerticalAlignment="Stretch" Margin="20,10,0,10" LineHeight="1"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBlock x:Name="messageBvn" Grid.Column="3"  TextWrapping="Wrap" Text="Bienvenue !" FontSize="45" FontWeight="Bold" Foreground="#FF2D58DA" TextAlignment="Center" Margin="0,0,0,30"/>
+        <TextBlock x:Name="dernierPari" Grid.Column="3" Grid.Row="1"  TextWrapping="Wrap" Text="Nos derniers Paris :" FontSize="30" Foreground="#FF2D58DA" TextAlignment="Center" FontWeight="Bold"/>
+        <TextBlock x:Name="dernierTournois" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" Text="Nos derniers tournois :" FontSize="30" FontWeight="Bold" Foreground="#FF2D58DA" TextAlignment="Center"/>
+        <TextBlock x:Name="dernierChampionnat" Grid.Column="3" Grid.Row="5" TextWrapping="Wrap" Text="Nos derniers championnat :" FontSize="30" FontWeight="Bold" Foreground="#FF2D58DA" TextAlignment="Center"/>
+        <ListView x:Name="listPari" ItemsSource="{Binding ListPari}" Grid.Column="3" Grid.Row="2" BorderBrush="{x:Null}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Image Source="{Binding UrlLogoEq1}" Grid.Column="0" Grid.Row="0" Width="100" Height="100"/>
+                        <Image Source="{Binding UrlLogoEq2}" Grid.Column="1" Grid.Row="0" Width="100" Height="100"/>
+                        <TextBlock  Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="{Binding NomEquipe1}" FontSize="15" FontFamily="Segoe WP" TextAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Bottom"  LineHeight="1" HorizontalAlignment="Center"/>
+                        <TextBlock  Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="{Binding NomEquipe2}" FontSize="15" FontFamily="Segoe WP" TextAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Bottom" LineHeight="1" HorizontalAlignment="Center"/>
+                        <TextBlock  Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="{Binding CoteEquipe1}" FontSize="15" FontFamily="Segoe WP" TextAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"  LineHeight="1" HorizontalAlignment="Center"/>
+                        <TextBlock  Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="{Binding CoteEquipe2}" FontSize="15" FontFamily="Segoe WP" TextAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top" LineHeight="1" HorizontalAlignment="Center"/>
+                        <TextBlock  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="{Binding NomJeux}" FontSize="15" FontFamily="Segoe WP" TextAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"  LineHeight="1" HorizontalAlignment="Center"/>
+                        <Rectangle Grid.ColumnSpan="2"  Stroke="#FF0080FF" Grid.RowSpan="2"  StrokeThickness="2"/>
+                        <Rectangle Grid.ColumnSpan="2"  Stroke="#FF0080FF" Grid.Row="1"  StrokeThickness="2"/>
+                        <Rectangle Grid.Column="0"  Stroke="#FF0080FF" Grid.Row="0" Width="2"  StrokeThickness="0" HorizontalAlignment="Right" Fill="#FF5F1717"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="listTournois" ItemsSource="{Binding ListTournois}" Grid.Column="3" Grid.Row="4" BorderBrush="{x:Null}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="{Binding UrlJeu}" Grid.Column="0" Grid.ColumnSpan="2"  Grid.Row="1" Width="200" Height="96" Opacity="0.75"/>
+                        <TextBlock  Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="{Binding NbPlace}" FontSize="15" FontFamily="Segoe WP" TextAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"  LineHeight="1" HorizontalAlignment="Center"/>
+                        <TextBlock  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Level}" FontSize="15" FontFamily="Segoe WP" TextAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"  LineHeight="1" HorizontalAlignment="Center"/>
+                        <TextBlock  Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="{Binding ReturnDate}" FontSize="15" FontFamily="Segoe WP" TextAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"  LineHeight="1" HorizontalAlignment="Center"/>
+                        <TextBlock  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" TextWrapping="Wrap" Text="{Binding NomTournois}" FontSize="15" FontFamily="Segoe WP" TextAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"  LineHeight="1" HorizontalAlignment="Center"/>
+                        <Rectangle Grid.ColumnSpan="2"  Stroke="#FF0080FF" Grid.RowSpan="4"  StrokeThickness="2"/>
+                        
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="listChampionnat" ItemsSource="{Binding ListChampionnat}"  Grid.Column="3" Grid.Row="6" BorderBrush="{x:Null}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="{Binding UrlJeu}" Grid.Column="0" Grid.ColumnSpan="2"  Grid.Row="1" Width="200" Height="96" Opacity="0.75"/>
+                        <TextBlock  Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="{Binding NbPlace}" FontSize="15" FontFamily="Segoe WP" TextAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"  LineHeight="1" HorizontalAlignment="Center"/>
+                        <TextBlock  Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="{Binding Level}" FontSize="15" FontFamily="Segoe WP" TextAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"  LineHeight="1" HorizontalAlignment="Center"/>
+                        <TextBlock  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" TextWrapping="Wrap" Text="{Binding NomChampionnat}" FontSize="15" FontFamily="Segoe WP" TextAlignment="Center" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"  LineHeight="1" HorizontalAlignment="Center"/>
+                        <Rectangle Grid.ColumnSpan="2"  Stroke="#FF0080FF" Grid.RowSpan="4"  StrokeThickness="2"/>
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
